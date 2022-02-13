@@ -4,6 +4,7 @@ import Icon from "./../images/app-icon.png";
 import { ReactComponent as GooglePlayBadge } from "./../images/google_play_badge.svg";
 import { ReactComponent as AppStoreBadge } from "./../images/app_store_badge.svg";
 import { ReactComponent as Wave } from "./../images/wave.svg";
+import { FaArrowDown as Arrow } from "react-icons/fa";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -33,11 +34,20 @@ const AppIcon = styled.img`
   border-radius: 25px;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+  padding-top: 25px;
+  font-size: 40px;
+  margin: 0;
+`;
 
-const Body = styled.h2``;
+const Body = styled.h2`
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+`;
 
 const StoreButtons = styled.div`
+  padding-top: 20px;
   width: 340px;
   display: flex;
   align-items: center;
@@ -59,6 +69,35 @@ const WaveDivider = styled(Wave)`
   bottom: 0;
 `;
 
+const ArrowDown = styled(Arrow)`
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: 1;
+  font-size: 40px;
+  color: #fdfdfd;
+  text-align: center;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+`;
+
 const IntroSection = () => {
   return (
     <div>
@@ -74,6 +113,7 @@ const IntroSection = () => {
           </StoreButtons>
         </AppElement>
       </Wrapper>
+      <ArrowDown />
       <WaveDivider />
     </div>
   );
