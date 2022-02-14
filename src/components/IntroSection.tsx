@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding-bottom: 100px;
 `;
 
 const MockupImage = styled.img`
@@ -65,12 +66,12 @@ const AppStoreButton = styled(AppStoreBadge)`
 `;
 
 const WaveDivider = styled(Wave)`
-  position: fixed;
+  position: absolute;
   bottom: 0;
 `;
 
 const ArrowDown = styled(Arrow)`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 50%;
   z-index: 1;
