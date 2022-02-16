@@ -5,23 +5,17 @@ import { ReactComponent as Book } from "./../../images/feature_icons/book.svg";
 import { ReactComponent as Important } from "./../../images/feature_icons/important.svg";
 import { ReactComponent as Stats } from "./../../images/feature_icons/stats.svg";
 import { ReactComponent as TrafficLight } from "./../../images/feature_icons/traffic_light.svg";
-import FeatureInfo from "./FeatureInfo";
+import feature from "../../types/feature";
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
 `;
 
 const DottedLine = styled.div`
-  border-left: 1.5px dashed black;
+  border-left: 1.5px dashed #d6d6d6;
   height: 30px;
-`;
-
-const FeatureRow = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
 `;
 
 const FeatureColumn = styled.div`
@@ -35,15 +29,16 @@ const IconMap = [Quiz, TrafficLight, Book, Important, Stats];
 type props = {
   currentIndex: number;
   onClick: Function;
+  features: feature[];
 };
 
-const FeatureIconSwitcher = ({ currentIndex, onClick }: props) => {
+const FeatureIconSwitcher = ({ currentIndex, onClick, features }: props) => {
   return (
     <Wrapper>
-      {IconMap.map((item, index) => (
-        <FeatureColumn>
+      {features.map((feature, index) => (
+        <FeatureColumn id={index.toString()}>
           <FeatureIcon
-            Icon={item}
+            Icon={feature.icon}
             isActive={index == currentIndex}
             onClick={() => onClick(index)}
           />

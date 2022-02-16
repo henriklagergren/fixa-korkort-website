@@ -1,12 +1,11 @@
-import { useState, FunctionComponent, SVGProps } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div``;
 
 const RoundIcon = styled.div<{ isActive: boolean }>`
-  padding: ${(props) => (props.isActive ? "12px" : "10px")};
+  padding: 20px;
   background-color: ${(props) => (props.isActive ? "#1bbbdf" : "white")};
-  border-radius: 25px;
+  border-radius: 35px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
   cursor: pointer;
