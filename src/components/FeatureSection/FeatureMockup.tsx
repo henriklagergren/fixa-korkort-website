@@ -2,7 +2,7 @@ import styled from "styled-components";
 import IphoneImg from "./../../images/mockups/oneplus.png";
 
 const Wrapper = styled.div`
-  height: 500px;
+  height: 600px;
 `;
 
 const Iphone = styled.img`
@@ -10,8 +10,8 @@ const Iphone = styled.img`
 `;
 
 const Mockup = styled.a<{ src: string }>`
-  height: 67%;
-  width: 100%;
+  height: 81%;
+  width: 50%;
   margin-left: 4px;
   margin-top: 9px;
   position: absolute;

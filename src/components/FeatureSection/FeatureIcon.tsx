@@ -29,7 +29,7 @@ const FeatureIcon = ({ Icon, isActive, onClick }: props) => {
   return (
     <Wrapper>
       <RoundIcon isActive={isActive} onClick={() => onClick()}>
-        <Icon />
+        <Icon filter={isActive ? "invert(100%)" : "none"} />
       </RoundIcon>
     </Wrapper>
   );

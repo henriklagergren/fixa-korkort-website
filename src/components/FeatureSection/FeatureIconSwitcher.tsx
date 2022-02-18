@@ -24,8 +24,6 @@ const FeatureColumn = styled.div`
   flex-direction: column;
 `;
 
-const IconMap = [Quiz, TrafficLight, Book, Important, Stats];
-
 type props = {
   currentIndex: number;
   onClick: Function;
@@ -42,7 +40,7 @@ const FeatureIconSwitcher = ({ currentIndex, onClick, features }: props) => {
             isActive={index == currentIndex}
             onClick={() => onClick(index)}
           />
-          {index != IconMap.length - 1 && <DottedLine />}
+          {index != features.length - 1 && <DottedLine />}
         </FeatureColumn>
       ))}
     </Wrapper>
