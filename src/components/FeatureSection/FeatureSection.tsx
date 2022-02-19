@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import FeatureIconSwitcher from "./FeatureIconSwitcher";
 import FeatureInfo from "./FeatureInfo";
@@ -59,10 +59,29 @@ const features: feature[] = [
 
 const FeatureSection = () => {
   const [currentIndex, setIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  var currentTimerId: NodeJS.Timeout;
 
-  const onClick = (newIndex: number) => {
-    setIndex(newIndex);
+  const onHover = (index: number, onEnter: boolean) => {
+    if (onEnter) {
+      clearTimeout(currentTimerId);
+      setAutoPlay(false);
+      setIndex(index);
+    } else if (!onEnter) {
+      currentTimerId = setTimeout(() => {
+        setAutoPlay(true);
+        setIndex((index + 1) % features.length);
+      }, 2000);
+    }
   };
+
+  useEffect(() => {
+    if (autoPlay) {
+      currentTimerId = setTimeout(() => {
+        setIndex((currentIndex + 1) % features.length);
+      }, 2000);
+    }
+  }, [currentIndex]);
 
   return (
     <Wrapper>
@@ -70,7 +89,9 @@ const FeatureSection = () => {
       <FeatureIconSwitcher
         features={features}
         currentIndex={currentIndex}
-        onClick={(newIndex: number) => onClick(newIndex)}
+        onHover={(newIndex: number, onEnter: boolean) =>
+          onHover(newIndex, onEnter)
+        }
       />
       <FeatureInfo
         index={currentIndex}

@@ -1,10 +1,5 @@
 import styled from "styled-components";
 import FeatureIcon from "./FeatureIcon";
-import { ReactComponent as Quiz } from "./../../images/feature_icons/quiz.svg";
-import { ReactComponent as Book } from "./../../images/feature_icons/book.svg";
-import { ReactComponent as Important } from "./../../images/feature_icons/important.svg";
-import { ReactComponent as Stats } from "./../../images/feature_icons/stats.svg";
-import { ReactComponent as TrafficLight } from "./../../images/feature_icons/traffic_light.svg";
 import feature from "../../types/feature";
 
 const Wrapper = styled.div`
@@ -26,11 +21,11 @@ const FeatureColumn = styled.div`
 
 type props = {
   currentIndex: number;
-  onClick: Function;
+  onHover: Function;
   features: feature[];
 };
 
-const FeatureIconSwitcher = ({ currentIndex, onClick, features }: props) => {
+const FeatureIconSwitcher = ({ currentIndex, onHover, features }: props) => {
   return (
     <Wrapper>
       {features.map((feature, index) => (
@@ -38,7 +33,7 @@ const FeatureIconSwitcher = ({ currentIndex, onClick, features }: props) => {
           <FeatureIcon
             Icon={feature.icon}
             isActive={index == currentIndex}
-            onClick={() => onClick(index)}
+            onHover={(onEnter: boolean) => onHover(index, onEnter)}
           />
           {index != features.length - 1 && <DottedLine />}
         </FeatureColumn>

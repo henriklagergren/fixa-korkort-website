@@ -22,13 +22,17 @@ type props = {
     }
   >;
   isActive: boolean;
-  onClick: Function;
+  onHover: Function;
 };
 
-const FeatureIcon = ({ Icon, isActive, onClick }: props) => {
+const FeatureIcon = ({ Icon, isActive, onHover }: props) => {
   return (
     <Wrapper>
-      <RoundIcon isActive={isActive} onClick={() => onClick()}>
+      <RoundIcon
+        isActive={isActive}
+        onMouseEnter={() => onHover(true)}
+        onMouseLeave={() => onHover(false)}
+      >
         <Icon filter={isActive ? "invert(100%)" : "none"} />
       </RoundIcon>
     </Wrapper>
