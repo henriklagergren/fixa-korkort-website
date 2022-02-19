@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ContactUsSection from "./components/ContactUsSection";
 import FeatureSection from "./components/FeatureSection/FeatureSection";
 import Footer from "./components/Footer";
 import IntroSection from "./components/IntroSection";
@@ -16,6 +17,7 @@ const App = () => {
       <IntroSection />
       <VideoSection />
       <FeatureSection />
+      <ContactUsSection />
       <Footer />
     </Wrapper>
   );

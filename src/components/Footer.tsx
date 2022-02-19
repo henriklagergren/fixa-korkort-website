@@ -16,13 +16,13 @@ const FooterContent = styled.div`
 
 const GooglePlayButton = styled(GooglePlayBadge)`
   padding-right: 5px;
-  width: 165px;
+  width: 130px;
   cursor: pointer;
 `;
 
 const AppStoreButton = styled(AppStoreBadge)`
   padding-left: 5px;
-  width: 165px;
+  width: 130px;
   cursor: pointer;
 `;
 

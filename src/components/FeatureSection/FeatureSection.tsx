@@ -16,7 +16,7 @@ import FeatureMockup from "./FeatureMockup";
 import feature from "../../types/feature";
 
 const Wrapper = styled.div`
-  margin: -100px 5% 0px 5%;
+  margin: 0 5%;
   padding-bottom: 100px;
   display: grid;
   grid-template-columns: 1fr 64px 1fr;
