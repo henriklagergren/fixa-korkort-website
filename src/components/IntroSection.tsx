@@ -57,12 +57,14 @@ const StoreButtons = styled.div`
 const GooglePlayButton = styled(GooglePlayBadge)`
   padding-right: 5px;
   max-width: 100%;
+  cursor: pointer;
 `;
 
 const AppStoreButton = styled(AppStoreBadge)`
   padding-left: 5px;
   height: 100%;
   max-width: 100%;
+  cursor: pointer;
 `;
 
 const WaveDivider = styled(Wave)`
@@ -109,8 +111,14 @@ const IntroSection = () => {
           <Title>Fixa Körkort</Title>
           <Body>Din väg till körkortet</Body>
           <StoreButtons>
-            <GooglePlayButton />
-            <AppStoreButton />
+            <GooglePlayButton
+              target="_blank"
+              href="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
+            />
+            <AppStoreButton
+              target="_blank"
+              href="https://apps.apple.com/SE/app/id1455678857"
+            />
           </StoreButtons>
         </AppElement>
       </Wrapper>
