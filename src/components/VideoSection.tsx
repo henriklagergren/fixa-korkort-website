@@ -33,7 +33,7 @@ const VideoSection = () => {
   return (
     <div>
       <Wrapper>
-        <VideoWrapper>
+        <VideoWrapper id="video">
           <Video
             title="Video"
             src="https://www.youtube.com/embed/SWcoBQTbvsQ"

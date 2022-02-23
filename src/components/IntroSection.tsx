@@ -5,7 +5,11 @@ import { ReactComponent as GooglePlayBadge } from "./../images/google_play_badge
 import { ReactComponent as AppStoreBadge } from "./../images/app_store_badge.svg";
 import { ReactComponent as Wave } from "./../images/wave.svg";
 import { FaArrowDown as Arrow } from "react-icons/fa";
+import { Link, animateScroll as Scroll } from "react-scroll";
 
+const Container = styled.div`
+  position: relative;
+`;
 const Wrapper = styled.div`
   width: 100%;
   padding-top: 40px;
@@ -14,7 +18,6 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-bottom: 100px;
 `;
 
 const MockupImage = styled.img`
@@ -67,11 +70,6 @@ const AppStoreButton = styled(AppStoreBadge)`
   cursor: pointer;
 `;
 
-const WaveDivider = styled(Wave)`
-  position: absolute;
-  bottom: 0;
-`;
-
 const ArrowDown = styled(Arrow)`
   position: absolute;
   bottom: 0;
@@ -83,6 +81,7 @@ const ArrowDown = styled(Arrow)`
   -moz-animation: bounce 2s infinite;
   -webkit-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
+  cursor: pointer;
 
   @keyframes bounce {
     0%,
@@ -103,7 +102,7 @@ const ArrowDown = styled(Arrow)`
 
 const IntroSection = () => {
   return (
-    <div>
+    <Container>
       <Wrapper>
         <MockupImage src={Mockup} />
         <AppElement>
@@ -122,9 +121,11 @@ const IntroSection = () => {
           </StoreButtons>
         </AppElement>
       </Wrapper>
-      <ArrowDown />
-      <WaveDivider />
-    </div>
+      <Wave />
+      <Link to="video" smooth={true} offset={-100}>
+        <ArrowDown />
+      </Link>
+    </Container>
   );
 };
 
