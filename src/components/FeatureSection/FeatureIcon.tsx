@@ -13,6 +13,10 @@ const RoundIcon = styled.div<{ isActive: boolean }>`
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 type props = {

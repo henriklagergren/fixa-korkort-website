@@ -4,30 +4,34 @@ import { ReactComponent as Wave } from "./../images/waveTwo.svg";
 
 const Wrapper = styled.div`
   background-color: #1bbbdf;
-  height: 500px;
+  padding: 0 100px;
+  margin-top: -10px;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 30px;
+  }
 `;
 
 const VideoWrapper = styled.div`
-  overflow: hidden;
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
 `;
 
 const Video = styled.iframe`
-  display: block;
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: 64%;
-  height: 90%;
+
   border: none;
 `;
 
-const WaveDivider = styled(Wave)``;
+const WaveDivider = styled(Wave)`
+  margin-top: -2px;
+`;
 
 const VideoSection = () => {
   return (

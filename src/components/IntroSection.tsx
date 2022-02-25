@@ -24,6 +24,10 @@ const MockupImage = styled.img`
   width: 280px;
   padding-right: 70px;
   z-index: 1;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const AppElement = styled.div`
@@ -31,6 +35,10 @@ const AppElement = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+  }
 `;
 
 const AppIcon = styled.img`
@@ -55,12 +63,20 @@ const StoreButtons = styled.div`
   width: 340px;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 500px) {
+    width: 275px;
+  }
 `;
 
 const GooglePlayButton = styled(GooglePlayBadge)`
   padding-right: 5px;
   max-width: 100%;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    width: 275px;
+  }
 `;
 
 const AppStoreButton = styled(AppStoreBadge)`
@@ -72,15 +88,15 @@ const AppStoreButton = styled(AppStoreBadge)`
 
 const ArrowDown = styled(Arrow)`
   position: absolute;
-  bottom: 0;
+  bottom: 20%;
   left: 50%;
   z-index: 1;
   font-size: 40px;
-  color: #fdfdfd;
+  color: #083842;
   text-align: center;
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
+  -moz-animation: bounce 4s infinite;
+  -webkit-animation: bounce 4s infinite;
+  animation: bounce 4s infinite;
   cursor: pointer;
 
   @keyframes bounce {
@@ -97,6 +113,10 @@ const ArrowDown = styled(Arrow)`
     60% {
       transform: translateY(-10px);
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
   }
 `;
 

@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 64px 1fr;
   justify-items: center;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const features: feature[] = [
@@ -84,21 +88,23 @@ const FeatureSection = () => {
   }, [currentIndex]);
 
   return (
-    <Wrapper>
-      <FeatureMockup mockup={features[currentIndex].mockup} />
-      <FeatureIconSwitcher
-        features={features}
-        currentIndex={currentIndex}
-        onHover={(newIndex: number, onEnter: boolean) =>
-          onHover(newIndex, onEnter)
-        }
-      />
-      <FeatureInfo
-        index={currentIndex}
-        title={features[currentIndex].title}
-        body={features[currentIndex].body}
-      />
-    </Wrapper>
+    <div>
+      <Wrapper>
+        <FeatureMockup mockup={features[currentIndex].mockup} />
+        <FeatureIconSwitcher
+          features={features}
+          currentIndex={currentIndex}
+          onHover={(newIndex: number, onEnter: boolean) =>
+            onHover(newIndex, onEnter)
+          }
+        />
+        <FeatureInfo
+          index={currentIndex}
+          title={features[currentIndex].title}
+          body={features[currentIndex].body}
+        />
+      </Wrapper>
+    </div>
   );
 };
 

@@ -1,15 +1,20 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div<{ index: number }>`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   margin-top: ${(props) => (props.index - 2) * 195}px;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 0;
+    grid-column: span 2;
+    padding-top: 20px;
+  }
 `;
 
 const Card = styled.div`
-  margin: 0;
+  margin-left: 30px;
   width: 60%;
   border-radius: 10px;
   background: white;
@@ -35,6 +40,19 @@ const Card = styled.div`
     left: -21px;
     margin-top: -12px;
     transition: all 0.75s ease;
+  }
+
+  @media screen and (max-width: 800px) {
+    &:after {
+      border-width: 0;
+    }
+
+    margin: 0 60px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 0 20px;
   }
 
   &:hover {
