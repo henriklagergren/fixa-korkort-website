@@ -60,30 +60,28 @@ const Body = styled.h2`
 
 const StoreButtons = styled.div`
   padding-top: 20px;
-  width: 340px;
   display: flex;
   align-items: center;
-
-  @media screen and (max-width: 500px) {
-    width: 275px;
-  }
 `;
 
 const GooglePlayButton = styled(GooglePlayBadge)`
   padding-right: 5px;
-  max-width: 100%;
+  width: 170px;
   cursor: pointer;
 
-  @media screen and (max-width: 500px) {
-    width: 275px;
+  @media screen and (max-width: 550px) {
+    width: 130px;
   }
 `;
 
 const AppStoreButton = styled(AppStoreBadge)`
   padding-left: 5px;
-  height: 100%;
-  max-width: 100%;
+  width: 170px;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    width: 130px;
+  }
 `;
 
 const ArrowDown = styled(Arrow)`
@@ -130,14 +128,18 @@ const IntroSection = () => {
           <Title>Fixa Körkort</Title>
           <Body>Din väg till körkortet</Body>
           <StoreButtons>
-            <GooglePlayButton
+            <a
               target="_blank"
               href="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
-            />
-            <AppStoreButton
+            >
+              <GooglePlayButton />
+            </a>
+            <a
               target="_blank"
               href="https://apps.apple.com/SE/app/id1455678857"
-            />
+            >
+              <AppStoreButton />
+            </a>
           </StoreButtons>
         </AppElement>
       </Wrapper>

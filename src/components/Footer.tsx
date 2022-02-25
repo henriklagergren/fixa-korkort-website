@@ -44,19 +44,19 @@ const Footer = () => {
     <Wrapper>
       <FooterContent>
         <div>
-          <GooglePlayButton
+          <a
             target="_blank"
             href="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
-          />
-          <AppStoreButton
-            target="_blank"
-            href="https://apps.apple.com/SE/app/id1455678857"
-          />
+          >
+            <GooglePlayButton />
+          </a>
+          <a target="_blank" href="https://apps.apple.com/SE/app/id1455678857">
+            <AppStoreButton />
+          </a>
         </div>
-        <InstagramButton
-          target="_blank"
-          href="https://www.instagram.com/fixakorkort/"
-        />
+        <a target="_blank" href="https://www.instagram.com/fixakorkort/">
+          <InstagramButton />
+        </a>
       </FooterContent>
       <CompanyName target="_blank" href="https://devkey.se">
         © {new Date().getFullYear()} devkey Software
