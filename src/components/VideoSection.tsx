@@ -4,11 +4,15 @@ import { ReactComponent as Wave } from "./../images/waveTwo.svg";
 
 const Wrapper = styled.div`
   background-color: #1bbbdf;
-  padding: 0 100px;
+  padding: 0 250px;
   margin-top: -10px;
 
+  @media screen and (max-width: 1200px) {
+    padding: 0 150px;
+  }
+
   @media screen and (max-width: 600px) {
-    padding: 0 30px;
+    padding: 30px;
   }
 `;
 

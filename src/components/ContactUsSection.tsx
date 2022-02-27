@@ -264,7 +264,7 @@ const ContactUsSection = () => {
             )}
             {contactForm === Email.no_name && (
               <EmailMessage emailStatus={contactForm}>
-                Vänligen fyll i namn/företag.
+                Vänligen fyll i ditt namn.
               </EmailMessage>
             )}
             {contactForm === Email.no_message && (

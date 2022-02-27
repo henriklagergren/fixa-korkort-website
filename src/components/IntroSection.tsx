@@ -44,6 +44,10 @@ const AppElement = styled.div`
 const AppIcon = styled.img`
   width: 150px;
   border-radius: 25px;
+  transition: transform 1s ease-in-out;
+  &:hover {
+    transform: rotate(360deg);
+  }
 `;
 
 const Title = styled.h1`
