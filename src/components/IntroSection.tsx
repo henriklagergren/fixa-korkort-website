@@ -5,7 +5,7 @@ import { ReactComponent as GooglePlayBadge } from "./../images/google_play_badge
 import { ReactComponent as AppStoreBadge } from "./../images/app_store_badge.svg";
 import { ReactComponent as Wave } from "./../images/wave.svg";
 import { FaArrowDown as Arrow } from "react-icons/fa";
-import { Link, animateScroll as Scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 const Container = styled.div`
   position: relative;

@@ -17,31 +17,29 @@ const Title = styled.h2`
   text-align: center;
   font-size: 40px;
   font-weight: bold;
-  margin: 0 0 10px 0;
+  color: white;
 `;
 
 const Body = styled.h3`
   text-align: center;
   font-size: 20px;
-  font-weight: 400;
-  margin: 0 0 30px 0;
+  font-weight: 500;
+  color: white;
 `;
 
-const ContactCard = styled.div`
-  background-color: white;
-  padding: 30px;
+const ContactForm = styled.div`
+  margin-top: 30px;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 3px 4px 6px 0 rgba(0, 0, 0, 0.3);
-`;
-
-const ContactContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 10px;
+  background-color: white;
 
-  @media screen and (max-width: 900) {
+  @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
   }
@@ -192,93 +190,91 @@ const ContactUsSection = () => {
     <div>
       <Wave />
       <Wrapper id="contact">
-        <ContactCard>
-          <Title>Har du några frågor eller funderingar?</Title>
-          <Body>Fyll i forumuläret så återkommer vi så snart som möjligt!</Body>
-          <ContactContent>
-            <div>
-              <BoxName>Namn:</BoxName>
-              <BoxForm>
-                <FormIcon src={ContactFormNameIcon} />
-                <FormInput
-                  isValid={contactForm !== Email.no_name}
-                  placeholder="Namn"
-                  id="name"
-                  value={name}
-                  onInput={(e) => setName(e.currentTarget.value)}
-                ></FormInput>
-              </BoxForm>
-            </div>
-            <div>
-              <BoxName>Email:</BoxName>
-              <BoxForm>
-                <FormIcon src={MailIcon} />
-                <FormInput
-                  isValid={contactForm !== Email.wrong_email}
-                  placeholder="Email"
-                  id="email"
-                  value={email}
-                  onInput={(e) => setEmail(e.currentTarget.value)}
-                ></FormInput>
-              </BoxForm>
-            </div>
-            <LargeBox>
-              <BoxName>Meddelande:</BoxName>
-              <BoxForm>
-                <FormIcon src={TalkBubbleIcon} />
-                <BigFormInput
-                  isValid={contactForm !== Email.no_message}
-                  placeholder="Meddelande"
-                  id="message"
-                  value={message}
-                  onInput={(e) => setMessage(e.currentTarget.value)}
-                ></BigFormInput>
-              </BoxForm>
-            </LargeBox>
-            <SubmitButton
-              id="submit"
-              onClick={() => {
-                setContactForm(Email.sending);
-                sendContactForm();
-              }}
-              disabled={contactForm === Email.sending}
-            >
-              {contactForm === Email.sending ? (
-                <ClipLoader
-                  color={"#fffff"}
-                  loading={contactForm === Email.sending}
-                />
-              ) : (
-                "Skicka meddelande"
-              )}
-            </SubmitButton>
-            {contactForm === Email.sent && (
-              <EmailMessage emailStatus={contactForm}>
-                Tack för ditt meddelande!
-              </EmailMessage>
+        <Title>Har du några frågor eller funderingar?</Title>
+        <Body>Fyll i forumuläret så återkommer vi så snart som möjligt!</Body>
+        <ContactForm>
+          <div>
+            <BoxName>Namn:</BoxName>
+            <BoxForm>
+              <FormIcon src={ContactFormNameIcon} />
+              <FormInput
+                isValid={contactForm !== Email.no_name}
+                placeholder="Namn"
+                id="name"
+                value={name}
+                onInput={(e) => setName(e.currentTarget.value)}
+              ></FormInput>
+            </BoxForm>
+          </div>
+          <div>
+            <BoxName>Email:</BoxName>
+            <BoxForm>
+              <FormIcon src={MailIcon} />
+              <FormInput
+                isValid={contactForm !== Email.wrong_email}
+                placeholder="Email"
+                id="email"
+                value={email}
+                onInput={(e) => setEmail(e.currentTarget.value)}
+              ></FormInput>
+            </BoxForm>
+          </div>
+          <LargeBox>
+            <BoxName>Meddelande:</BoxName>
+            <BoxForm>
+              <FormIcon src={TalkBubbleIcon} />
+              <BigFormInput
+                isValid={contactForm !== Email.no_message}
+                placeholder="Meddelande"
+                id="message"
+                value={message}
+                onInput={(e) => setMessage(e.currentTarget.value)}
+              ></BigFormInput>
+            </BoxForm>
+          </LargeBox>
+          <SubmitButton
+            id="submit"
+            onClick={() => {
+              setContactForm(Email.sending);
+              sendContactForm();
+            }}
+            disabled={contactForm === Email.sending}
+          >
+            {contactForm === Email.sending ? (
+              <ClipLoader
+                color={"#fffff"}
+                loading={contactForm === Email.sending}
+              />
+            ) : (
+              "Skicka meddelande"
             )}
-            {contactForm === Email.failed && (
-              <EmailMessage emailStatus={contactForm}>
-                Ett fel uppstod när meddelandet skulle skickas.
-              </EmailMessage>
-            )}
-            {contactForm === Email.no_name && (
-              <EmailMessage emailStatus={contactForm}>
-                Vänligen fyll i ditt namn.
-              </EmailMessage>
-            )}
-            {contactForm === Email.no_message && (
-              <EmailMessage emailStatus={contactForm}>
-                Vänligen fyll meddelande.
-              </EmailMessage>
-            )}
-            {contactForm === Email.wrong_email && (
-              <EmailMessage emailStatus={contactForm}>
-                Vänligen fyll i en giltig email.
-              </EmailMessage>
-            )}
-          </ContactContent>
-        </ContactCard>
+          </SubmitButton>
+          {contactForm === Email.sent && (
+            <EmailMessage emailStatus={contactForm}>
+              Tack för ditt meddelande!
+            </EmailMessage>
+          )}
+          {contactForm === Email.failed && (
+            <EmailMessage emailStatus={contactForm}>
+              Ett fel uppstod när meddelandet skulle skickas.
+            </EmailMessage>
+          )}
+          {contactForm === Email.no_name && (
+            <EmailMessage emailStatus={contactForm}>
+              Vänligen fyll i ditt namn.
+            </EmailMessage>
+          )}
+          {contactForm === Email.no_message && (
+            <EmailMessage emailStatus={contactForm}>
+              Vänligen fyll meddelande.
+            </EmailMessage>
+          )}
+          {contactForm === Email.wrong_email && (
+            <EmailMessage emailStatus={contactForm}>
+              Vänligen fyll i en giltig email.
+            </EmailMessage>
+          )}
+        </ContactForm>
       </Wrapper>
     </div>
   );
