@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ReactPlayer from "react-player";
 import { ReactComponent as Wave } from "./../images/waveTwo.svg";
 
 const Wrapper = styled.div`
