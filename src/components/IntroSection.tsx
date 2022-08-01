@@ -6,6 +6,7 @@ import { ReactComponent as AppStoreBadge } from "./../images/app_store_badge.svg
 import { ReactComponent as Wave } from "./../images/wave.svg";
 import { FaArrowDown as Arrow } from "react-icons/fa";
 import { Link } from "react-scroll";
+import firebase from "./../functions/firebaseFunctions";
 
 const Container = styled.div`
   position: relative;
@@ -132,18 +133,22 @@ const IntroSection = () => {
           <Title>Fixa Körkort</Title>
           <Body>Din väg till körkortet</Body>
           <StoreButtons>
-            <a
-              target="_blank"
-              href="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
-            >
-              <GooglePlayButton />
-            </a>
-            <a
-              target="_blank"
-              href="https://apps.apple.com/SE/app/id1455678857"
-            >
-              <AppStoreButton />
-            </a>
+            <div onClick={() => firebase.sendLog("Google play")}>
+              <a
+                target="_blank"
+                href="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
+              >
+                <GooglePlayButton />
+              </a>
+            </div>
+            <div onClick={() => firebase.sendLog("App store")}>
+              <a
+                target="_blank"
+                href="https://apps.apple.com/SE/app/id1455678857"
+              >
+                <AppStoreButton />
+              </a>
+            </div>
           </StoreButtons>
         </AppElement>
       </Wrapper>
